@@ -1,0 +1,137 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipedream Final Test</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #007bff; /* Pipedream-like blue */
+            margin-bottom: 25px;
+            font-size: 2.5em;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .status-message {
+            font-style: italic;
+            color: #6c757d;
+        }
+
+        button {
+            background-color: #28a745; /* Success green */
+            color: white;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        button:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+
+        #resultMessage {
+            margin-top: 30px;
+            font-weight: bold;
+            color: #007bff;
+            font-size: 1.2em;
+            min-height: 2em; /* Ensure space even when empty */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Final Test with Pipedream</h1>
+        <p class="status-message">This page represents a final test environment for Pipedream. Click the button below to simulate a workflow trigger or action.</p>
+        
+        <button id="runPipedreamTestButton">Initiate Test Sequence</button>
+        
+        <p id="resultMessage"></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const testButton = document.getElementById('runPipedreamTestButton');
+            const resultMessage = document.getElementById('resultMessage');
+
+            testButton.addEventListener('click', () => {
+                // Disable button and show loading state
+                testButton.disabled = true;
+                testButton.textContent = 'Running Test...';
+                resultMessage.style.color = '#ffc107'; // Yellow for in-progress
+                resultMessage.textContent = 'Simulating Pipedream workflow execution...';
+
+                // Simulate an asynchronous operation (e.g., API call, workflow execution)
+                setTimeout(() => {
+                    const timestamp = new Date().toLocaleTimeString('en-US', { hour12: false });
+                    const date = new Date().toLocaleDateString('en-US');
+
+                    // Simulate success
+                    resultMessage.style.color = '#28a745'; // Green for success
+                    resultMessage.textContent = `Pipedream test completed successfully at ${timestamp} on ${date}. Check developer console for detailed logs.`;
+                    testButton.textContent = 'Test Completed!';
+                    
+                    // Log details to console for "test" verification
+                    console.log('--- Pipedream Final Test Log ---');
+                    console.log(`Test Name: Final Test with Pipedream`);
+                    console.log(`Status: SUCCESS`);
+                    console.log(`Timestamp: ${new Date().toISOString()}`);
+                    console.log(`Client User Agent: ${navigator.userAgent}`);
+                    console.log(`Simulated Action: Workflow trigger/step execution`);
+                    console.log(`--- End Test Log ---`);
+
+                }, 2000); // Simulate a 2-second delay for the "workflow"
+            });
+        });
+    </script>
+</body>
+</html>
+```
